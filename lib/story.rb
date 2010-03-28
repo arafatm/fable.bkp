@@ -12,9 +12,9 @@ class Story
   property :id, Serial
   property :description, Text
   property :points, Integer
-  property :priority, Integer
+  property :position, Integer
 
-  default_scope(:default).update(:order => [:priority.asc])
+  default_scope(:default).update(:order => [:position.asc])
 end
 
 DataMapper.auto_upgrade!

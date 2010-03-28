@@ -10,8 +10,8 @@ describe Story do
       Story.new.respond_to?(:points).should == true
     end
 
-    it 'should have a priority' do
-      Story.new.respond_to?(:priority).should == true
+    it 'should have a position' do
+      Story.new.respond_to?(:position).should == true
     end
   end
 
@@ -22,14 +22,14 @@ describe Story do
       stories.destroy!
     end
 
-    it 'should default order by priority' do
-      Story.new(:description => 'story 01', :points => 5, :priority => '4').save
-      Story.new(:description => 'story 02', :points => 5, :priority => '2').save
-      Story.new(:description => 'story 03', :points => 5, :priority => '6').save
+    it 'should default order by position' do
+      Story.new(:description => 'story 01', :points => 5).save
+      Story.new(:description => 'story 02', :points => 5).save
+      Story.new(:description => 'story 03', :points => 5).save
       stories = Story.all
-      stories[0].priority.should.equal 2 
-      stories[1].priority.should.equal 4 
-      stories[2].priority.should.equal 6 
+      stories[0].move 3
+      stories[0].description.should.equal 'story 02'
     end
+
   end 
 end
