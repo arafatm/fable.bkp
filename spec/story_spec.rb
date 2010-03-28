@@ -27,7 +27,6 @@ describe Story do
       Story.new(:description => 'story 02', :points => 5, :priority => '2').save
       Story.new(:description => 'story 03', :points => 5, :priority => '6').save
       stories = Story.all
-      puts stories.count
       stories[0].priority.should.equal 2 
       stories[1].priority.should.equal 4 
       stories[2].priority.should.equal 6 

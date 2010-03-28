@@ -1,10 +1,13 @@
 require 'dm-core'
+require 'dm-is-list'
 
 DataMapper.setup(:default, 'sqlite3:fable.db')
 
 class Story
 
   include DataMapper::Resource
+
+  is :list
   
   property :id, Serial
   property :description, Text
