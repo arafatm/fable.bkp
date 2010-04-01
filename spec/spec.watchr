@@ -12,7 +12,7 @@ def run_spec(spec)
   puts
 end
 
-watch('^spec\/.*\/.*_spec\.rb') {|md| run_spec(md[0]) }
+watch('^spec/.*_spec\.rb') {|md| run_spec(md[0]) }
 watch('^lib/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
 watch('^app/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
 watch('^app/(.*\.haml)') {|md| run_spec("spec/#{md[1]}_spec.rb") }
