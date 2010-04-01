@@ -31,6 +31,13 @@ describe Story do
       stories[0].description.should.equal 'story 02'
     end
 
+    it 'should assign a default position' do
+      s = Story.new(:description => 'story 01', :points => 5)
+      s.save
+      s.position.should.not.be.nil
+
+    end
+
     it 'should require a description' do
       s = Story.new
       s.save
