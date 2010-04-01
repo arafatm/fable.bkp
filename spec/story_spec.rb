@@ -31,5 +31,11 @@ describe Story do
       stories[0].description.should.equal 'story 02'
     end
 
+    it 'should require a description' do
+      s = Story.new
+      s.save
+      s.errors.on(:description).should.include "Description must not be blank"
+    end
+
   end 
 end
