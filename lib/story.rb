@@ -14,11 +14,14 @@ class Story
   property :description, Text
   property :points, Integer
   property :position, Integer
-
+  property :status, Text
 
   default_scope(:default).update(:order => [:position.asc])
 
   validates_present :description
+
+  STATUSES=['Ready', 'In Progress', 'Verify', 'Done']
+
 end
 
 DataMapper.auto_upgrade!

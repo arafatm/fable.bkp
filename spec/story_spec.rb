@@ -17,6 +17,10 @@ describe Story do
       Story.new.respond_to?(:position).should == true
     end
 
+    it 'should have a status' do
+      Story.new.respond_to?(:status).should == true
+    end
+
   end
 
   describe 'behaviour' do
@@ -46,6 +50,13 @@ describe Story do
       s = Story.new
       s.save
       s.errors.on(:description).should.include "Description must not be blank"
+    end
+
+    it 'should allow assignment of a status' do
+      s = Story.new(:description => 'story')
+      s.status = Story::STATUSES[0]
+      s.save
+      s.status.should == 'Ready'
     end
 
   end 
