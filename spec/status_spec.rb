@@ -5,6 +5,9 @@ describe Status do
     it 'should have a name' do
       Status.new.respond_to?(:name).should == true
     end
+    it 'should have a position' do
+      Status.new.respond_to?(:position).should == true
+    end
   end
 
   describe 'behaviour' do

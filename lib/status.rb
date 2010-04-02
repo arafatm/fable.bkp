@@ -10,6 +10,7 @@ class Status
 
   property :id, Serial
   property :name, Text
+  property :position, Integer
 
   validates_present :name
 end
