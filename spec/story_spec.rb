@@ -1,3 +1,5 @@
+require 'sinatra'
+require 'dm-core'
 require File.expand_path(File.dirname(__FILE__) + '/../lib/story')
 
 describe Story do
@@ -25,7 +27,6 @@ describe Story do
 
   describe 'behaviour' do
     before do
-      DataMapper.setup(:test, "sqlite3://test.db")
       stories = Story.all
       stories.destroy!
     end
@@ -54,7 +55,7 @@ describe Story do
 
     it 'should allow assignment of a status' do
       s = Story.new(:description => 'story')
-      s.status = Story::STATUSES[0]
+      s.status = s.statuses[0]
       s.save
       s.status.should == 'Ready'
     end

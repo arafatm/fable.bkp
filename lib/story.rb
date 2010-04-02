@@ -22,6 +22,10 @@ class Story
 
   STATUSES=['Ready', 'In Progress', 'Verify', 'Done']
 
+  def statuses
+    Story::STATUSES
+  end
+
 end
 
 DataMapper.auto_upgrade!
