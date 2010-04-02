@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'sinatra'
 require 'dm-core'
 require 'dm-is-list'
 require 'dm-validations'
@@ -29,3 +31,7 @@ class Story
 end
 
 DataMapper.auto_upgrade!
+
+get '/' do
+  haml :list
+end

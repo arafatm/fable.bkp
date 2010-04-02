@@ -1,8 +1,8 @@
-Make up stories
+= Make up stories
 
-Story
-- description
-- priority
-- pts
-- notes
-- states
+= TODO:
+
+== Web List of Stories
+Sinatra app to show list of stories
+
+==  
