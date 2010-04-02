@@ -1,7 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../lib/story')
+require File.expand_path(File.dirname(__FILE__) + '/../lib/status')
 
 describe Story do
   describe 'attributes' do
+    before do
+      Story.all.destroy!
+      Status.all.destroy!
+    end
     it 'should have a description' do
       Story.new.respond_to?(:description).should == true
     end
@@ -13,6 +18,11 @@ describe Story do
     it 'should have a position' do
       Story.new.respond_to?(:position).should == true
     end
+
+    it 'should belong to status' do
+      Story.new.respond_to?(:status).should == true
+    end
+
   end
 
   describe 'behaviour' do
@@ -45,4 +55,12 @@ describe Story do
     end
 
   end 
+
+  describe 'associations' do
+    before do
+      Status.all.destroy!
+      Story.all.destroy!
+    end
+
+  end
 end

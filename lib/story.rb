@@ -15,6 +15,8 @@ class Story
   property :points, Integer
   property :position, Integer
 
+  belongs_to :status
+
   default_scope(:default).update(:order => [:position.asc])
 
   validates_present :description
