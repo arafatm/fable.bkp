@@ -11,6 +11,7 @@ class Status
   property :id, Serial
   property :name, Text
 
+  validates_present :name
 end
 
 DataMapper.auto_upgrade!
