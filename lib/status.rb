@@ -14,6 +14,8 @@ class Status
   property :name, Text
   property :position, Integer
 
+  default_scope(:default).update(:order => [:position.asc])
+
   validates_present :name
 end
 

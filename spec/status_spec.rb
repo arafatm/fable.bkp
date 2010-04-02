@@ -28,6 +28,16 @@ describe Status do
       s.save
       s.position.should.not.be.nil
     end
+
+    it 'should default order by position' do
+      Status.new(:name => 'status 01').save
+      Status.new(:name => 'status 02').save
+      Status.new(:name => 'status 03').save
+
+      s = Status.all[0]
+      s.move 10
+      Status.all[0].name.should == 'status 02'
+    end
   end
 
 end
