@@ -8,6 +8,8 @@ class Status
 
   include DataMapper::Resource
 
+  is :list
+
   property :id, Serial
   property :name, Text
   property :position, Integer
