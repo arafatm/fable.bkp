@@ -3,6 +3,7 @@ require 'sinatra'
 require 'dm-core'
 require 'dm-is-list'
 require 'dm-validations'
+require 'dm-serializer'
 
 DataMapper.setup(:default, 'sqlite3:fable.db')
 
@@ -33,5 +34,6 @@ end
 DataMapper.auto_upgrade!
 
 get '/' do
+  @stories = Story.all
   haml :list
 end

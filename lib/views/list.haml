@@ -1,1 +1,10 @@
-Hello World
+- @stories.each do |story|
+  %div
+    = story.description
+    %div
+      Status: 
+      = story.status
+    %div
+      Estimate: 
+      = story.points
+  %hr
