@@ -1,7 +1,12 @@
+require 'sinatra'
+require 'dm-core'
 require File.expand_path(File.dirname(__FILE__) + '/../lib/story')
 
 describe Story do
   describe 'attributes' do
+    before do
+      Story.all.destroy!
+    end
     it 'should have a description' do
       Story.new.respond_to?(:description).should == true
     end
@@ -13,11 +18,15 @@ describe Story do
     it 'should have a position' do
       Story.new.respond_to?(:position).should == true
     end
+
+    it 'should have a status' do
+      Story.new.respond_to?(:status).should == true
+    end
+
   end
 
   describe 'behaviour' do
     before do
-      DataMapper.setup(:test, "sqlite3://test.db")
       stories = Story.all
       stories.destroy!
     end
@@ -42,6 +51,13 @@ describe Story do
       s = Story.new
       s.save
       s.errors.on(:description).should.include "Description must not be blank"
+    end
+
+    it 'should allow assignment of a status' do
+      s = Story.new(:description => 'story')
+      s.status = s.statuses[0]
+      s.save
+      s.status.should == 'Ready'
     end
 
   end 
