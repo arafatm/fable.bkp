@@ -1,4 +1,6 @@
 %script{:type => "text/javascript", :src => "/js/jquery.js"}
+%script{:type => "text/javascript", :src => "/js/jquery-ui.js"}
+%script{:type => "text/javascript", :src => "/js/application.js"}
 %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
 %table
   %col
@@ -14,15 +16,16 @@
   %tr
     - @stories.each do |stories|
       %td
-        - stories.each do |story|
-          %div.story
-            = story.description
-            %div
-              Status: 
-              = story.status
-            %div
-              Estimate: 
-              = story.points
-            %div
-              position: 
-              = story.position
+        %ul.stories
+          - stories.each do |story|
+            %li.story
+              = story.description
+              %div
+                Status: 
+                = story.status
+              %div
+                Estimate: 
+                = story.points
+              %div
+                position: 
+                = story.position
