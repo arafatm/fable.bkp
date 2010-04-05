@@ -1,24 +1,22 @@
 %script{:type => "text/javascript", :src => "/js/jquery.js"}
 %script{:type => "text/javascript", :src => "/js/jquery-ui.js"}
-%script{:type => "text/javascript", :src => "/js/application.js"}
 %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
 %table
   %col
-  %col
-  %col
-  %col
-  %col
-  %thead
-    %tr
-      - Story::STATUSES.each do |status|
-        %th.status
-          = status
+    %col
+      %col
+        %col
+          %col
+            %thead
+              %tr
+                - Story::STATUSES.each do |status|
+                  %th.status= status
   %tr
-    - @stories.each do |stories|
+    - @stories.each_index do |status_index|
       %td
-        %ul.stories
-          - stories.each do |story|
-            %li.story
+        %ul{:class => 'sortable_stories', :id => "#{Story::STATUSES[status_index]}"}
+          - @stories[status_index].each do |story|
+            %li{:id => "story_#{story.id}"}
               = story.description
               %div
                 Status: 
@@ -29,3 +27,13 @@
               %div
                 position: 
                 = story.position
+:javascript
+  $(document).ready(function() {
+    $('ul.sortable_stories').each(function (stories) {
+      $(this).sortable({
+        update: function(event, ui) {
+          console.log(jQuery.isEmptyObject($(ui.item).next()));
+        }
+      });
+    });
+  });
