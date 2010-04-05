@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'sinatra'
+require 'haml'
+require 'sass'
 require 'dm-core'
 require 'dm-is-list'
 require 'dm-validations'
@@ -36,4 +38,8 @@ DataMapper.auto_upgrade!
 get '/' do
   @stories = Story.all
   haml :list
+end
+
+get '/main.css' do
+  sass :main
 end

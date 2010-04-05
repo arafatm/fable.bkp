@@ -1,3 +1,15 @@
+%script{:type => "text/javascript", :src => "/js/jquery.js"}
+%link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+%table
+  %col
+  %col
+  %col
+  %col
+  %thead
+    %tr
+      - Story::STATUSES.each do |status|
+        %th.status
+          = status
 %article
   - @stories.each do |story|
     %div
