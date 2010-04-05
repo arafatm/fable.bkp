@@ -8,21 +8,21 @@
   %col
   %thead
     %tr
-      %th
       - Story::STATUSES.each do |status|
         %th.status
           = status
-%article
-  - @stories.each do |story|
-    %div
-      = story.description
-      %div
-        Status: 
-        = story.status
-      %div
-        Estimate: 
-        = story.points
-      %div
-        position: 
-        = story.position
-    %hr
+  %tr
+    - @stories.each do |stories|
+      %td
+        - stories.each do |story|
+          %div.story
+            = story.description
+            %div
+              Status: 
+              = story.status
+            %div
+              Estimate: 
+              = story.points
+            %div
+              position: 
+              = story.position
