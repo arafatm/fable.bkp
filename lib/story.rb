@@ -25,18 +25,24 @@ class Story
 
   validates_present :description
 
-  STATUSES=['Ready', 'In Progress', 'Verify', 'Done']
+  STATUSES=['Not Ready', 'Ready', 'In Progress', 'Verify', 'Done']
 
   def statuses
     Story::STATUSES
   end
 
+  def self.by_status(status)
+    all(:status => status)
+  end
 end
 
 DataMapper.auto_upgrade!
 
 get '/' do
-  @stories = Story.all
+  @stories = []
+  Story::STATUSES.each do |status|
+    @stories << Story.by_status(status)
+  end
   haml :list
 end
 
