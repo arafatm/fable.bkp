@@ -1,10 +1,14 @@
-- @stories.each do |story|
-  %div
-    = story.description
+%article
+  - @stories.each do |story|
     %div
-      Status: 
-      = story.status
-    %div
-      Estimate: 
-      = story.points
-  %hr
+      = story.description
+      %div
+        Status: 
+        = story.status
+      %div
+        Estimate: 
+        = story.points
+      %div
+        position: 
+        = story.position
+    %hr
