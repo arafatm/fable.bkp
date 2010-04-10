@@ -7,6 +7,8 @@ require 'dm-is-list'
 require 'dm-validations'
 require 'dm-serializer'
 
+require File.expand_path(File.dirname(__FILE__) + '/../lib/feature')
+
 DataMapper.setup(:default, 'sqlite3:fable.db')
 
 class Task
@@ -18,6 +20,7 @@ class Task
   property :estimate, Integer
   property :status, Text
 
+  belongs_to :feature
 end
 
 DataMapper.auto_upgrade!
