@@ -38,14 +38,14 @@ end
 
 DataMapper.auto_upgrade!
 
-get '/' do
-  @stories = []
-  Story::STATUSES.each do |status|
-    @stories << Story.by_status(status)
-  end
-  haml :list
-end
-
-get '/main.css' do
-  sass :main
-end
+#get '/' do
+#  @stories = []
+#  Story::STATUSES.each do |status|
+#    @stories << Story.by_status(status)
+#  end
+#  haml :list
+#end
+#
+#get '/main.css' do
+#  sass :main
+#end
