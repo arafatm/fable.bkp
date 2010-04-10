@@ -1,0 +1,31 @@
+%script{:type => "text/javascript", :src => "/js/jquery.js"}
+%script{:type => "text/javascript", :src => "/js/jquery-ui.js"}
+%script{:type => "text/javascript", :src => "/js/application.js"}
+%link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+%table
+  %col
+  %col
+  %col
+  %col
+  %col
+  %thead
+    %tr
+      - Story::STATUSES.each do |status|
+        %th.status
+          = status
+  %tr
+    - @stories.each do |stories|
+      %td
+        %ul.stories
+          - stories.each do |story|
+            %li.story
+              = story.description
+              %div
+                Status: 
+                = story.status
+              %div
+                Estimate: 
+                = story.points
+              %div
+                position: 
+                = story.position
