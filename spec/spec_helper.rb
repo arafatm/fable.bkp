@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'dm-core'
 
-Dir.glob('../lib/*.rb') do |lib|
+Dir.glob('lib/*.rb') do |lib|
   require lib
 end
 
