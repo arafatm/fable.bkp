@@ -7,8 +7,8 @@ describe Task do
     it 'should have a description' do
       Task.new.respond_to?(:description).should == true
     end
-    it 'should have an estimate' do
-      Task.new.respond_to?(:estimate).should == true
+    it 'should have an points' do
+      Task.new.respond_to?(:points).should == true
     end
     it 'should have a status' do
       Task.new.respond_to?(:status).should == true

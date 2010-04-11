@@ -15,7 +15,7 @@ class Task
 
   property :id, Serial
   property :description, Text
-  property :estimate, Integer
+  property :points, Integer
   property :status, Text
 
   belongs_to :feature
