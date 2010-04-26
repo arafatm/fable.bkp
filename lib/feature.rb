@@ -9,8 +9,6 @@ require 'dm-serializer'
 
 require File.expand_path(File.dirname(__FILE__) + '/../lib/task')
 
-DataMapper.setup(:default, 'sqlite3:fable.db')
-
 class Feature
 
   include DataMapper::Resource
@@ -18,8 +16,6 @@ class Feature
   property :id, Serial
   property :description, Text
 
-  has n, :tasks, :through => Resource
+  has n, :tasks
 
 end
-
-DataMapper.auto_upgrade!

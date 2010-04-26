@@ -7,8 +7,6 @@ require 'dm-is-list'
 require 'dm-validations'
 require 'dm-serializer'
 
-DataMapper.setup(:default, 'sqlite3:fable.db')
-
 class Story
 
   include DataMapper::Resource
@@ -35,8 +33,6 @@ class Story
     all(:status => status)
   end
 end
-
-DataMapper.auto_upgrade!
 
 #get '/' do
 #  @stories = []

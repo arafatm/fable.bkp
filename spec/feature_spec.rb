@@ -1,10 +1,4 @@
-require 'rubygems'
-require 'sinatra'
-require 'dm-core'
-require File.expand_path(File.dirname(__FILE__) + '/../lib/feature')
-require File.expand_path(File.dirname(__FILE__) + '/../lib/task')
-
-set :environment, :test
+require File.dirname(__FILE__) + '/spec_helper'
 
 describe Feature do
   describe 'attributes' do
@@ -20,8 +14,9 @@ describe Feature do
     end
 
     it 'should have many tasks' do
-      f = Feature.new(:description => 'Feature').save
-      puts f.tasks.new.save
+      f = Feature.new(:description => 'Feature')
+      f.save
+      f.tasks.new.save.should == true
     end
   end
 end
