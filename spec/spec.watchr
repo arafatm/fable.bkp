@@ -1,3 +1,5 @@
+#! /bin/ruby
+
 puts "\n--- watchr initialized ---\n\n"
 
 def cmd() 'bacon '; end
