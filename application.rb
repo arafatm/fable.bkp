@@ -6,4 +6,4 @@ Dir.glob('lib/*.rb') do |model|
 end
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/fable.db")
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
