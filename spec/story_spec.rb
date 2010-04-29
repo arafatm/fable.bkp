@@ -29,12 +29,15 @@ describe Story do
     before do
       stories = Story.all
       stories.destroy!
+      Story.new(:description => 'story 01', :points => 5, 
+                :status => Story::STATUSES[0]).save
+      Story.new(:description => 'story 02', :points => 5, 
+                :status => Story::STATUSES[0]).save
+      Story.new(:description => 'story 03', :points => 5, 
+                :status => Story::STATUSES[0]).save
     end
 
     it 'should default order by position' do
-      Story.new(:description => 'story 01', :points => 5).save
-      Story.new(:description => 'story 02', :points => 5).save
-      Story.new(:description => 'story 03', :points => 5).save
       stories = Story.all
       stories[0].move 3
       stories[0].description.should.equal 'story 02'
@@ -57,8 +60,12 @@ describe Story do
       s = Story.new(:description => 'story')
       s.status = s.statuses[0]
       s.save
-      s.status.should == 'Ready'
+      s.status.should == Story::STATUSES[0]
     end
 
+    it 'should allow finding of stories by status' do
+      stories = Story.by_status(Story::STATUSES[0])
+      stories.count.should == 3
+    end
   end 
 end
