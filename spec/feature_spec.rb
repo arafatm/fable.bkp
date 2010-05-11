@@ -9,14 +9,16 @@ describe Feature do
   
   describe 'associations' do
     before do
-      Feature.all.destroy!
-      Task.all.destroy!
+      DataMapper::Model.descendants.each {|m| m.all.destroy!}
     end
 
     it 'should have many tasks' do
+      r = Release.new(:description => 'Release')
+      r.save
       f = Feature.new(:description => 'Feature')
       f.save
-      f.tasks.new.save.should == true
+      f.tasks(:description => 'Task',
+              :release => r).new.save.should == true
     end
   end
 end

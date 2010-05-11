@@ -14,12 +14,28 @@ describe Task do
   end
   describe 'associations' do
     before do
-      @f = Feature.new(:description => 'feature')
+      DataMapper::Model.descendants.each {|m| m.all.destroy!}
     end
-    it 'should belong to a  feature' do
-      @f.tasks.new(:description => 'task',
-                   :points => 5).save
-      @f.tasks.count.should == 1
+    it 'should belong to a feature' do
+      r = Release.new(:description => 'release')
+      f = Feature.new(:description => 'feature')
+      f.tasks.new(:description => 'task',
+                  :points => 5,
+                  :release => r).save.should == true
+    end
+    it 'should belong to a release' do
+      r = Release.new(:description => 'Release')
+      f = Feature.new(:description => 'feature')
+      r.tasks.new(:description => 'task',
+                  :points => 5,
+                  :feature => f).save.should == true
+    end
+    it 'should not be required to belong to a release' do
+      r = Release.new(:description => 'Release')
+      f = Feature.new(:description => 'feature')
+      f.tasks.new(:description => 'task',
+                  :points => 5,
+                  :release => nil).save.should == true
     end
   end
 end
