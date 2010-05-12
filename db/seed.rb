@@ -5,8 +5,10 @@ DataMapper::Model.descendants.each {|m| m.all.destroy!}
 statuses = ['Ready', 'In Progress', 'Verify', 'Done']
 points = [0, 1, 2, 3, 5, 8, 13, 20, 40, 60, 100]
 
+d = Date.today
 (1..5).each do |i|
-  r = Release.new(:description => "Release #{i}")
+  r = Release.new(:description => "Release #{i}",
+                 :date => (d + 14*i))
   if !r.save
     puts r.errors.to_yml 
     return
