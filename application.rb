@@ -1,4 +1,7 @@
 require 'rubygems'
+require 'bundler'
+Bundler.setup
+
 require 'dm-core'
 
 Dir.glob('lib/*.rb') do |model|
