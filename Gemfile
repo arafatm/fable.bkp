@@ -10,4 +10,5 @@ gem 'dm-serializer'
 gem 'data_objects'
 
 gem 'bacon'
+gem 'watchr'
 
