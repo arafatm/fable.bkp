@@ -1,2 +1,1 @@
-sudo gem install  sinatra haml do_sqlite3 dm-core dm-is-list dm-validations dm-serializer data_objects bacon watchr
-
+sudo gem install  sinatra haml do_sqlite3 dm-core dm-is-list dm-validations dm-serializer data_objects bacon watchr dm-migrations dm-sqlite-adapter
