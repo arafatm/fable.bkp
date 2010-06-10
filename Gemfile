@@ -12,3 +12,4 @@ gem 'data_objects'
 gem 'bacon'
 gem 'watchr'
 
+gem 'shotgun'
