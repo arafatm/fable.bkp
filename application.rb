@@ -1,7 +1,12 @@
 require 'rubygems'
+require 'dm-core'
 require 'dm-migrations'
+require 'dm-is-list'
+require 'dm-validations'
+require 'dm-serializer'
 
-Dir.glob('lib/*.rb') do |model|
+
+Dir.glob('lib/models/*.rb') do |model|
   require model
 end
 

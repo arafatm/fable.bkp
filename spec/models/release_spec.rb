@@ -1,12 +1,14 @@
-require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
-describe Feature do
+describe Release do
   describe 'attributes' do
     it 'should have a description' do
-      Feature.new.respond_to?(:description).should == true
+      Release.new.respond_to?(:description).should == true
+    end
+    it 'should have a date' do
+      Release.new.respond_to?(:date).should == true
     end
   end
-  
   describe 'associations' do
     before do
       DataMapper::Model.descendants.each {|m| m.all.destroy!}
@@ -14,11 +16,11 @@ describe Feature do
 
     it 'should have many tasks' do
       r = Release.new(:description => 'Release')
-      r.save
       f = Feature.new(:description => 'Feature')
+      r.save
       f.save
-      f.tasks(:description => 'Task',
-              :release => r).new.save.should == true
+      r.tasks(:description => 'Task',
+              :feature => f).new.save.should == true
     end
   end
 end
