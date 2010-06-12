@@ -1,1 +1,1 @@
-shotgun -p 4567 -o 0.0.0.0 lib/story.rb
+shotgun -p 4567 -o 0.0.0.0 lib/plan.rb
