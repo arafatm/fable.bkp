@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'dm-core'
+require 'dm-migrations'
 
 Dir.glob('lib/*.rb') do |model|
   require model

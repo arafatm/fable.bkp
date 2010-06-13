@@ -1,5 +1,6 @@
 require 'rubygems'
-require 'dm-core'
+require 'dm-migrations'
+require 'bacon'
 
 Dir.glob('lib/*.rb') do |lib|
   require lib
