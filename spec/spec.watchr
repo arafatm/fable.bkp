@@ -14,10 +14,18 @@ def run_spec(spec)
   puts
 end
 
-watch('^spec/.*_spec\.rb') {|md| run_spec(md[0]) }
-watch('^lib/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
-watch('^app/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
-watch('^app/(.*\.haml)') {|md| run_spec("spec/#{md[1]}_spec.rb") }
+def run_model_spec(spec)
+  run_spec("spec/models/#{spec}_spec.rb")
+end
+
+# models
+watch('^spec/models/.*_spec\.rb') {|md| run_spec(md[0]) }
+watch('^lib/models/(.*)\.rb') {|md| run_model_spec(md[1]) }
+
+#watch('^app/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
+#watch('^app/(.*\.haml)') {|md| run_spec("spec/#{md[1]}_spec.rb") }
+
+# spec_helper
 watch('spec/spec_helper.rb') {|md| run_all_specs }
 
 # Ctrl-\
