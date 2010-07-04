@@ -1,17 +1,18 @@
 %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
 %table
-  %col
   %thead
     %tr
       %th
       - @features.each do |feature|
         %th.feature.header= feature.description
+  %tbody
     - @releases.each do |release|
       %tr
         %th= release.description
         - @features.each do |feature|
           - tasks = Task.all(:feature => feature, :release => release)
           %td
-            - tasks.each do |task|
-              %div.task= task.description
+            %ul.tasks
+              - tasks.each do |task|
+                %li.task= task.description
         

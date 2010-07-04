@@ -7,3 +7,8 @@ get '/' do
 
   haml :planning
 end
+
+get '/main.css' do
+  sass :main
+end 
+
