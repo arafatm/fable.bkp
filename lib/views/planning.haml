@@ -1,10 +1,10 @@
 %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
-%table
+%table.map
   %thead
     %tr
       %th
       - @features.each do |feature|
-        %th.feature.header= feature.description
+        %th.feature= feature.description
   %tbody
     - @releases.each do |release|
       %tr
