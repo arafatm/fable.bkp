@@ -1,18 +1,30 @@
-%link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
-%table.map
-  %thead
-    %tr
-      %th
-      - @features.each do |feature|
-        %th.feature= feature.description
-  %tbody
-    - @releases.each do |release|
-      %tr
-        %th= release.description
-        - @features.each do |feature|
-          - tasks = Task.all(:feature => feature, :release => release)
-          %td
-            %ul.tasks
-              - tasks.each do |task|
-                %li.task= task.description
-        
+!!! 5
+%html
+  %head
+    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+    %title= "Story Planner"
+  %body
+    %header= "Story Planner"
+    %nav
+      %ul
+        %li
+          %a{:href=>'/'} Story Planner
+    %section#main
+      %table.map
+        %thead
+          %tr
+            %th
+            - @features.each do |feature|
+              %th.feature= feature.description
+        %tbody
+          - @releases.each do |release|
+            %tr
+              %th= release.description
+              - @features.each do |feature|
+                - tasks = Task.all(:feature => feature, :release => release)
+                %td
+                  %ul.tasks
+                    - tasks.each do |task|
+                      %li.task= task.description
+    %footer= "Fable"
+            
