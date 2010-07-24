@@ -15,7 +15,7 @@ d = Date.today
   end
 end
 
-(1..50).each do |i|
+(1..10).each do |i|
   f = Feature.new(:description => "Feature #{i}")
   puts f.errors unless f.save 
   if !f.save
