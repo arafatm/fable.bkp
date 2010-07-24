@@ -6,7 +6,7 @@ statuses = ['Ready', 'In Progress', 'Verify', 'Done']
 points = [0, 1, 2, 3, 5, 8, 13, 20, 40, 60, 100]
 
 d = Date.today
-(1..5).each do |i|
+(1..10).each do |i|
   r = Release.new(:description => "Release #{i}",
                  :date => (d + 14*i))
   if !r.save
@@ -15,7 +15,7 @@ d = Date.today
   end
 end
 
-(1..10).each do |i|
+(1..20).each do |i|
   f = Feature.new(:description => "Feature #{i}")
   puts f.errors unless f.save 
   if !f.save
