@@ -12,3 +12,8 @@ get '/main.css' do
   sass :main
 end 
 
+helpers do
+  def cycle(*states)
+    states[@_cycle = ((@_cycle || -1) + 1) % states.size]
+  end 
+end

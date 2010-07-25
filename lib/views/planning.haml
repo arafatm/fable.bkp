@@ -22,9 +22,9 @@
               %th= release.description
               - @features.each do |feature|
                 - tasks = Task.all(:feature => feature, :release => release)
-                %td{:class => cycle('odd', 'even')}
+                %td{:class => cycle('even', 'odd')}
                   %ul.tasks
                     - tasks.each do |task|
-                      %li.task= task.description
+                      %li.task= "#{task.id}: #{task.description}"
     %footer= "Fable"
             
