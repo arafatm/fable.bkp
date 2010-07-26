@@ -1,0 +1,10 @@
+- Refactor Task -> Story
+- Mark Release as complete
+- Color code Story Status (Not Ready, Ready, IP, Verify, Done)
+- Form to CRUD Feature
+- Form to CRUD Release
+- Form to CRUD Story
+- Color code Release as DONE
+- Story History
+
+= DONE =
