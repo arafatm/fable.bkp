@@ -10,6 +10,9 @@
 - Form to CRUD Story
 - Color code Release as DONE
 - Story History
+- Summary of incomplete/complete in Feature and Release headers of map
+- Allow delay of release
+  - Option to increment all subsequent releases by same timespan
 
 = DONE =
 
