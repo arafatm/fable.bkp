@@ -19,7 +19,9 @@
         %tbody
           - @releases.each do |release|
             %tr
-              %th= release.description
+              %th
+                = release.description
+                = release.date
               - @features.each do |feature|
                 - tasks = Task.all(:feature => feature, :release => release)
                 %td{:class => cycle('even', 'odd')}
