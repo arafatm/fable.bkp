@@ -6,5 +6,5 @@ class Release
   property :description, Text
   property :date, Date
 
-  has n, :tasks
+  has n, :stories
 end

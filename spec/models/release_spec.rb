@@ -14,12 +14,12 @@ describe Release do
       DataMapper::Model.descendants.each {|m| m.all.destroy!}
     end
 
-    it 'should have many tasks' do
+    it 'should have many stories' do
       r = Release.new(:description => 'Release')
       f = Feature.new(:description => 'Feature')
       r.save
       f.save
-      r.tasks(:description => 'Task',
+      r.stories(:description => 'Story',
               :feature => f).new.save.should == true
     end
   end

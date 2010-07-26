@@ -5,6 +5,6 @@ class Feature
   property :id, Serial
   property :description, Text
 
-  has n, :tasks
+  has n, :stories
 
 end

@@ -25,7 +25,7 @@ end
 
   (5..rand(20)).each do |j|
     r = Release.all[rand(Release.all.length)]
-    t = Task.new(:description => "Task #{i} #{j}",
+    t = Story.new(:description => "Story #{i} #{j}",
                  :points => points[rand(points.length)],
                  :status => statuses[rand(statuses.length)],
                  :feature => f,

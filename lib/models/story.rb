@@ -1,4 +1,4 @@
-class Task
+class Story
 
   include DataMapper::Resource
 
