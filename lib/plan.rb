@@ -1,5 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../application')
 require 'sinatra'
+require 'haml'
+require 'sass'
 
 get '/' do
   @features = Feature.all
