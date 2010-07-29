@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+    %title= "Story Planner - New Feature"
+  %body
+    %header= "Story Planner - New Feature"
+    %nav
+      %ul
+        %li
+          %a{:href=>'/'} Story Planner
+    %section#main
+      %form{:action=>'/feature', :method=>'post'}
+        %label{:for=> "Description"}= "description"
+        %input{:type=> :text,   :name=>"description"}
+        %input{:type=> :submit, :value=>"Add new feature"}
+    %footer= "&copy; Fable"
+            

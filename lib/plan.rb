@@ -3,6 +3,7 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 
+
 get '/' do
   @features = Feature.all
   @releases = Release.all(:order => :date)
@@ -19,3 +20,5 @@ helpers do
     states[@_cycle = ((@_cycle || -1) + 1) % states.size]
   end 
 end
+
+load 'lib/feature.rb'
