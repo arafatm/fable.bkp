@@ -5,11 +5,13 @@ get '/feature' do
 end
 
 post '/feature' do
-  redirect '/feature'
-  if Feature.new(:description => params['description']).save
-    redirect '/'
+  content_type :json
+
+  f = Feature.new(:description => params['description'])
+  if f.save
+    f.to_json
   else
-    redirect '/feature'
+   "Unable to save feature".to_json
   end
 end
 
