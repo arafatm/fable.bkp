@@ -12,3 +12,8 @@ post '/feature' do
     redirect '/feature'
   end
 end
+
+get '/feature/:id' do
+  content_type :json
+  Feature.all(:id => params["id"]).to_json
+end
