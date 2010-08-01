@@ -4,10 +4,14 @@ require 'dm-migrations'
 require 'dm-is-list'
 require 'dm-validations'
 require 'dm-serializer'
+require 'sinatra'
 
 require 'bacon'
 
 Dir.glob('lib/models/*.rb') do |lib|
+  require lib
+end
+Dir.glob('lib/*.rb') do |lib|
   require lib
 end
 
