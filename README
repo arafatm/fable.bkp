@@ -2,12 +2,12 @@
 
 = TODO:
 
-- Refactor Story -> Story
+- depoloy to heroku
+- json CRUD Feature
 - Mark Release as complete
 - Color code Story Status (Not Ready, Ready, IP, Verify, Done)
-- Form to CRUD Feature
-- Form to CRUD Release
-- Form to CRUD Story
+- json CRUD Release
+- json to CRUD Story
 - Color code Release as DONE
 - Story History
 - Summary of incomplete/complete in Feature and Release headers of map
@@ -17,3 +17,4 @@
 = DONE =
 
 - View only Story map
+- Refactor Task -> Story
