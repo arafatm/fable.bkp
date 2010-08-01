@@ -13,7 +13,6 @@ describe 'Feature service' do
   end
 
   describe 'get /feature/:id' do
-
     it 'should return feature with given id' do
       f = Feature.new(:description => 'New Feature')
       f.save
@@ -21,6 +20,21 @@ describe 'Feature service' do
       get "/feature/#{f.id}"
 
       last_response.body.should == f.to_json
+    end
+  end
+
+  describe 'get /feature/:id/stories' do
+    it 'should return feature with given id' do
+      f = Feature.new(:description => 'New Feature')
+      f.save
+
+      f.stories.new(:description => '1').save
+      f.stories.new(:description => '2').save
+      f.stories.new(:description => '3').save
+
+      get "/feature/#{f.id}/stories"
+
+      last_response.body.should == f.stories.to_json
     end
   end
 
