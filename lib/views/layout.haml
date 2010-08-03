@@ -1,4 +1,13 @@
 %html
   %head
     %title= "Fable: Share a story"
-  = yield
+    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    %header= "Story Planner"
+    %nav
+      %ul
+        %li
+          %a{:href=>'/'} Story Planner
+    %section#main
+      = yield
+    %footer= "Fable"

@@ -1,32 +1,18 @@
-!!! 5
-%html
-  %head
-    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
-    %title= "Story Planner"
-  %body
-    %header= "Story Planner"
-    %nav
-      %ul
-        %li
-          %a{:href=>'/'} Story Planner
-    %section#main
-      %table.map
-        %thead
-          %tr
-            %th
-            - @features.each do |feature|
-              %th.feature= feature.description
-        %tbody
-          - @releases.each do |release|
-            %tr
-              %th
-                = release.description
-                = release.date
-              - @features.each do |feature|
-                - stories = Story.all(:feature => feature, :release => release)
-                %td{:class => cycle('even', 'odd')}
-                  %ul.stories
-                    - stories.each do |story|
-                      %li.story= "#{story.id}: #{story.description}"
-    %footer= "Fable"
-            
+%table.map
+  %thead
+    %tr
+      %th
+      - @features.each do |feature|
+        %th.feature= feature.description
+  %tbody
+    - @releases.each do |release|
+      %tr
+        %th
+          = release.description
+          = release.date
+        - @features.each do |feature|
+          - stories = Story.all(:feature => feature, :release => release)
+          %td{:class => cycle('even', 'odd')}
+            %ul.stories
+              - stories.each do |story|
+                %li.story= "#{story.id}: #{story.description}"
