@@ -18,9 +18,17 @@ def run_model_spec(spec)
   run_spec("spec/models/#{spec}_spec.rb")
 end
 
+def run_functional_spec(spec)
+  run_spec("spec/functional/#{spec}_spec.rb")
+end
+
 # models
 watch('^spec/models/.*_spec\.rb') {|md| run_spec(md[0]) }
 watch('^lib/models/(.*)\.rb') {|md| run_model_spec(md[1]) }
+
+# functionals
+watch('^spec/functional/.*_spec\.rb') {|md| run_spec(md[0]) }
+watch('^lib/(.*)\.rb') {|md| run_functional_spec(md[1]) }
 
 #watch('^app/(.*)\.rb') {|md| run_spec("spec/#{md[1]}_spec.rb") }
 #watch('^app/(.*\.haml)') {|md| run_spec("spec/#{md[1]}_spec.rb") }
