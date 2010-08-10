@@ -20,6 +20,15 @@ get '/feature/:id' do
   Feature.first(:id => params["id"]).to_json
 end
 
+post '/feature/:id' do
+  content_type :json
+
+  f = Feature.first(:id => params["id"])
+  f.description = params[:description]
+  f.save
+  f.to_json
+end
+
 get '/feature/:id/stories' do
   content_type :json
   Feature.all(:id => params["id"]).stories.to_json
