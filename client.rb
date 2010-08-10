@@ -1,6 +1,7 @@
+#!/usr/bin/ruby
+
 # TODO: Verify server is running
 
-#!/usr/bin/ruby
 
 require 'rubygems'
 require 'httparty'

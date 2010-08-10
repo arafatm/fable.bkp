@@ -37,5 +37,15 @@ describe 'Feature service' do
       last_response.body.should == f.stories.to_json
     end
   end
+  
+  describe 'post /feature' do
+    it 'should accept a new feature with a description' do
+      post '/feature', params={:description => 'new description'}
+      puts
+      puts last_response.body
+      f = Feature.last
+      last_response.body.should == f.to_json
+    end
+  end
 
 end
