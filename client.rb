@@ -28,6 +28,9 @@ Valid Inputs:
   --
   f -u :id "some description" 
     post /feature/:id {description: "some description"}
+  --
+  f -d :id  
+    delete /feature/:id
   END
   puts helps
 end
@@ -64,6 +67,12 @@ def update_feature(id, description)
   puts feature.to_yaml
 end
 
+def delete_feature(id)
+  puts "Deleting Feature(#{id})"
+  resp = Fable.delete("/feature/#{id}")
+  puts resp
+end
+
 print '> '
 while input = STDIN.gets
   puts '------------'
@@ -91,6 +100,12 @@ while input = STDIN.gets
         print_help
       else
         update_feature(args[2], args[3])
+      end
+    elsif args[1] == '-d'
+      if args[2] == nil
+        print_help
+      else
+        delete_feature args[2]
       end
     else
       print_help

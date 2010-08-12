@@ -46,7 +46,7 @@ describe 'Feature service' do
     end
   end
 
-  describe 'post /feature:id with description' do
+  describe 'post /feature/:id with description' do
     it 'should update the feature description for the given id' do
       f = Feature.new(:description => 'Existing Feature')
       f.save
@@ -55,6 +55,23 @@ describe 'Feature service' do
 
       f = Feature.first(:id => f.id)
       last_response.body.should == f.to_json
+    end
+  end
+
+  describe 'delete /feature/:id' do
+    it 'should return true when successfully deleting the feature with the given id' do
+      f = Feature.new(
+        :description => "Feature #{Time.now.strftime('%Y%m%d.%H%M%S')}")
+
+      f.save
+
+      delete "feature/#{f.id}"
+      last_response.body.should == "true"
+    end
+
+    it 'should return false when successfully deleting the feature with the given id' do
+      delete "feature/1" # This feature should not exist
+      last_response.body.should == "false"
     end
   end
 end
