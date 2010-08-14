@@ -1,25 +1,20 @@
-#get '/release' do
-#  @releases = Release.all
-#  @releases = Release.all
-#  haml :release_new
-#end
-#
-#post '/release' do
-#  content_type :json
-#
-#  f = Release.new(:description => params['description'])
-#  if f.save
-#    f.to_json
-#  else
-#   "Unable to save release".to_json
-#  end
-#end
-#
-#get '/release/:id' do
-#  content_type :json
-#  Release.first(:id => params["id"]).to_json
-#end
-#
+get '/release/:id' do
+  content_type :json
+
+  Release.first(:id => params["id"]).to_json
+end
+
+post '/release' do
+  content_type :json
+
+  f = Release.new(:description => params['description'])
+  if f.save
+    f.to_json
+  else
+   "Unable to save release".to_json
+  end
+end
+
 #post '/release/:id' do
 #  content_type :json
 #
