@@ -22,3 +22,4 @@ helpers do
 end
 
 load 'lib/feature.rb'
+load 'lib/release.rb'
