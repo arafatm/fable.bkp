@@ -15,24 +15,23 @@ post '/release' do
   end
 end
 
-#post '/release/:id' do
-#  content_type :json
-#
-#  f = Release.first(:id => params["id"])
-#  f.description = params[:description]
-#  f.save
-#  f.to_json
-#end
-#
+post '/release/:id' do
+  content_type :json
+
+  r = Release.first(:id => params["id"])
+  r.description = params[:description]
+  r.date = params[:date]
+  r.save
+  r.to_json
+end
+
 get '/release/:id/stories' do
   content_type :json
-  puts "delete #{params[:id]}"
   Release.first(:id => params["id"]).stories.to_json
 end
 
 #delete '/release/:id' do
 #  content_type :json
-#  puts "delete #{params[:id]}"
 #  f = Release.first(:id => params["id"]) 
 #  if f == nil
 #    return false.to_json

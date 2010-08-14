@@ -40,7 +40,7 @@ describe 'Release service' do
       last_response.body.should == r.stories.to_json
     end
   end
-#
+
   describe 'post /release' do
     it 'should accept a new release with a description' do
       post '/release', params={:description => 'new description'}
@@ -49,18 +49,23 @@ describe 'Release service' do
     end
   end
 
-#  describe 'post /release/:id with description' do
-#    it 'should update the release description for the given id' do
-#      f = Release.new(:description => 'Existing Release')
-#      f.save
-#
-#      post "release/#{f.id}", params={:description => 'new existing description'}
-#
-#      f = Release.first(:id => f.id)
-#      last_response.body.should == f.to_json
-#    end
-#  end
-#
+  describe 'post /release/:id with description and date' do
+    it 'should update the release description and date for the given id' do
+      d = Date.today
+      r = Release.new(:description => 'Existing Release', :date => d)
+      r.save
+
+      post "release/#{r.id}", params={
+        :description => 'new existing description',
+        :date => d + 14}
+
+      r = Release.first(:id => r.id)
+      r.description.should == 'new existing description'
+      r.date.to_s.should == (d + 14).to_s
+      last_response.body.should == r.to_json
+    end
+  end
+
 #  describe 'delete /release/:id' do
 #    it 'should return true when successfully deleting the release with the given id' do
 #      f = Release.new(
