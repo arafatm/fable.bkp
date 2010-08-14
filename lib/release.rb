@@ -18,9 +18,16 @@ end
 post '/release/:id' do
   content_type :json
 
+  puts '/release/:id'
   r = Release.first(:id => params["id"])
-  r.description = params[:description]
-  r.date = params[:date]
+  if params[:description]
+    puts "description: #{params[:description]}"
+    r.description = params[:description]
+  end
+  if params[:date]
+    puts "date: #{params[:date]}"
+    r.date = params[:date]
+  end
   r.save
   r.to_json
 end
