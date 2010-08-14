@@ -23,20 +23,23 @@ describe 'Release service' do
     end
   end
 
-#  describe 'get /release/:id/stories' do
-#    it 'should return release with given id' do
-#      f = Release.new(:description => 'New Release')
-#      f.save
-#
-#      f.stories.new(:description => '1').save
-#      f.stories.new(:description => '2').save
-#      f.stories.new(:description => '3').save
-#
-#      get "/release/#{f.id}/stories"
-#
-#      last_response.body.should == f.stories.to_json
-#    end
-#  end
+  describe 'get /release/:id/stories' do
+    it 'should return release with given id' do
+      r = Release.new(:description => 'New Release')
+      f = Feature.new(:description => 'New Feature')
+
+      r.save
+      f.save
+
+      r.stories.new(:description => '1', :feature => f).save
+      r.stories.new(:description => '2', :feature => f).save
+      r.stories.new(:description => '3', :feature => f).save
+
+      get "/release/#{r.id}/stories"
+
+      last_response.body.should == r.stories.to_json
+    end
+  end
 #
   describe 'post /release' do
     it 'should accept a new release with a description' do

@@ -24,12 +24,12 @@ end
 #  f.to_json
 #end
 #
-#get '/release/:id/stories' do
-#  content_type :json
-#  puts "delete #{params[:id]}"
-#  Release.all(:id => params["id"]).stories.to_json
-#end
-#
+get '/release/:id/stories' do
+  content_type :json
+  puts "delete #{params[:id]}"
+  Release.first(:id => params["id"]).stories.to_json
+end
+
 #delete '/release/:id' do
 #  content_type :json
 #  puts "delete #{params[:id]}"
