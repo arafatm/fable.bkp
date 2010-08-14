@@ -66,20 +66,20 @@ describe 'Release service' do
     end
   end
 
-#  describe 'delete /release/:id' do
-#    it 'should return true when successfully deleting the release with the given id' do
-#      f = Release.new(
-#        :description => "Release #{Time.now.strftime('%Y%m%d.%H%M%S')}")
-#
-#      f.save
-#
-#      delete "release/#{f.id}"
-#      last_response.body.should == "true"
-#    end
-#
-#    it 'should return false when successfully deleting the release with the given id' do
-#      delete "release/1" # This release should not exist
-#      last_response.body.should == "false"
-#    end
-#  end
+  describe 'delete /release/:id' do
+    it 'should return true when successfully deleting the release with the given id' do
+      f = Release.new(
+        :description => "Release #{Time.now.strftime('%Y%m%d.%H%M%S')}")
+
+      f.save
+
+      delete "release/#{f.id}"
+      last_response.body.should == "true"
+    end
+
+    it 'should return false when successfully deleting the release with the given id' do
+      delete "release/1" # This release should not exist
+      last_response.body.should == "false"
+    end
+  end
 end

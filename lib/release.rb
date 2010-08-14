@@ -30,12 +30,12 @@ get '/release/:id/stories' do
   Release.first(:id => params["id"]).stories.to_json
 end
 
-#delete '/release/:id' do
-#  content_type :json
-#  f = Release.first(:id => params["id"]) 
-#  if f == nil
-#    return false.to_json
-#  else
-#    f.destroy.to_json
-#  end
-#end
+delete '/release/:id' do
+  content_type :json
+  f = Release.first(:id => params["id"]) 
+  if f == nil
+    return false.to_json
+  else
+    f.destroy.to_json
+  end
+end
