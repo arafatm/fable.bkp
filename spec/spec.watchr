@@ -45,3 +45,5 @@ end
  
 # Ctrl-C
 Signal.trap('INT') { abort("\n") }
+
+system(cmd + Dir['spec/**/*_spec.rb'].join(' '))

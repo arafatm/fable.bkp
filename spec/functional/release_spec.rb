@@ -77,7 +77,7 @@ describe 'Release service' do
       last_response.body.should == "true"
     end
 
-    it 'should return false when successfully deleting the release with the given id' do
+    it 'should return false when attempting to delete a nonexistent release' do
       delete "release/1" # This release should not exist
       last_response.body.should == "false"
     end
